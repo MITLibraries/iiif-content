@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    #viewer {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="/app/mirador/2.1.2/css/mirador-combined.css">
+  <script src="/app/mirador/2.1.2/mirador.min.js"></script>
+  <title>Class of 1982 Sequentiary</title>
+</head>
+<body>
+  <!-- This is the static HTML page hosting just the Mirador viewer, in case we separate this from Wordpress. -->
+  <div id="viewer"></div>
+  <span style="clear: both;"></span>
+  <script type="text/javascript">
+    // Mirador player
+    $(function() {
+
+      Mirador({
+        id: "viewer",
+        layout: "1x1",
+        data: [ 
+          {manifestUri: "/app/iiif/class_of_1982_sequentiary.json", location: "Sequentiary"}
+        ],
+        windowObjects: [
+          {loadedManifest: "/app/iiif/class_of_1982_sequentiary.json"}
+        ]
+      });
+
+    });
+
+    // Google analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-1760176-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
