@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style type="text/css">
-    #viewer {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-    }
-  </style>
-  <link rel="stylesheet" type="text/css" href="/app/mirador/2.1.2/css/mirador-combined.css">
-  <script src="/app/mirador/2.1.2/mirador.min.js"></script>
   <title>Class of 1982 Sequentiary</title>
+<!-- By default uses Roboto font. Be sure to load this or change the font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+<meta charset="utf-8">
+<!-- Container element of Mirador whose id should be passed to the instantiating call as "id" -->
+<script src="/iiif/mirador.min.js"></script>
 </head>
 <body>
   <!-- This is the static HTML page hosting just the Mirador viewer, in case we separate this from Wordpress. -->
-  <div id="viewer"></div>
+  <div id="my-mirador"></div>
   <span style="clear: both;"></span>
-  <script type="text/javascript">
-    // Mirador player
-    $(function() {
 
-      Mirador({
-        id: "viewer",
-        layout: "1x1",
-        data: [ 
-          {manifestUri: "/app/iiif/class_of_1982_sequentiary_cantaloupe_stage.json", location: "Sequentiary"}
-        ],
-        windowObjects: [
-          {loadedManifest: "/app/iiif/class_of_1982_sequentiary_cantaloupe_stage.json"}
-        ]
-      });
-
-    });
-
-    // Google analytics
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-1760176-1', 'auto');
-    ga('send', 'pageview');
-  </script>
+<script>
+var mirador = Mirador.viewer({
+  "id": "my-mirador",
+  "manifests": {
+    "https://cdn.stage.mitlibrary.net/iiif/sequentiary/class_of_1982_sequentiary.json": {
+      "provider": "MIT Libraries"
+    }
+  },
+  "windows": [
+    {
+      "loadedManifest": "https://cdn.stage.mitlibrary.net/iiif/sequentiary/class_of_1982_sequentiary.json",
+      "canvasIndex": 2,
+      "thumbnailNavigationPosition": 'far-bottom'
+    }
+  ]
+});
+</script>
 </body>
 </html>
